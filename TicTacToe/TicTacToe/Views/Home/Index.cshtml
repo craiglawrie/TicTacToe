@@ -1,0 +1,47 @@
+﻿@model List<char>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/style.css" rel="stylesheet" />
+</head>
+<body style="text-align:center; margin-top:5rem;">
+    <div id="game-board">
+        <div id="game-background"></div>
+        @for (int i = 0; i < 3; i++)
+        {
+            <div class="game-row">
+                @for (int j = 0; j < 3; j++)
+                {
+                    <div class="game-cell">
+                        @if (@Model[i * 3 + j] == ' ')
+                        {
+                            <form method="post" class="centered">
+                                <input type="hidden" value="@(i * 3 + j)" name="square" />
+                                <button class="white-btn">@Model[i * 3 + j]</button>
+                            </form>
+                        }
+                        else
+                        {
+                            <div class="centered">
+                                <span>@Model[i * 3 + j]</span>
+                            </div>
+                        }
+                    </div>
+                }
+            </div>
+        }
+    </div>
+    <form method="post" style="margin-top: 2rem;">
+        <input type="hidden" value="-1" name="square" />
+        <button>New Game</button>
+    </form>
+</body>
+</html>

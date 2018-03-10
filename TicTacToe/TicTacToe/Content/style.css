@@ -1,0 +1,41 @@
+﻿
+#game-board {
+    display: inline-block;
+    position: relative;
+}
+
+#game-background {
+    position: absolute;
+    background-color: black;
+    display: inline-block;
+    width: 6rem;
+    height: 6rem;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+div.game-cell {
+    position: relative;
+    display: inline-block;
+    margin: 0.1rem 0rem;
+    padding: 0rem;
+    vertical-align: top;
+    width: 2rem;
+    height: 2rem;
+    background-color: white;
+}
+
+    div.game-cell div.centered {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+    }
+
+div.game-cell form button {
+    width:1.8rem;
+    height:1.8rem;
+    background-color: white;
+    border: none;
+}
