@@ -44,3 +44,4 @@ C:\Users\Craig Lawrie\self-projects\TicTacToe\TicTacToe\TicTacToe\bin\System.Web
 C:\Users\Craig Lawrie\self-projects\TicTacToe\TicTacToe\TicTacToe\bin\System.Web.Mvc.xml
 C:\Users\Craig Lawrie\self-projects\TicTacToe\TicTacToe\TicTacToe\obj\Debug\TicTacToe.dll
 C:\Users\Craig Lawrie\self-projects\TicTacToe\TicTacToe\TicTacToe\obj\Debug\TicTacToe.pdb
+C:\Users\Craig Lawrie\self-projects\TicTacToe\TicTacToe\TicTacToe\obj\Debug\TicTacToe.csprojResolveAssemblyReference.cache
