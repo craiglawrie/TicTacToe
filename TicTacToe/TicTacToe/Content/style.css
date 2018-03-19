@@ -48,4 +48,7 @@ div.game-cell form button {
     height:100%;
     background-color: white;
     border: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
 }
