@@ -39,16 +39,43 @@ namespace TicTacToe.Controllers
                 // If game is not over, find a play for 'O'
                 if (!game.IsGameOver)
                 {
-                    for (int i = 0; i < 9; i++)
-                    {
-                        if (game.Game[(square + i) % 9] == ' ')
-                        {
-                            game.Game[(square + i) % 9] = 'O';
-                            return;
-                        }
-                    }
+                    game.Game[GetOPlayIndex(game)] = 'O';
                 }
             }
+        }
+
+        private int GetOPlayIndex(GameModel game)
+        {
+            int index = 4;
+
+            // Check for winning plays for O. If there is one, win the game.
+            for (int i = 0; i < 9; i++)
+            {
+                if (game.Game[i] == ' ' && game.DoesPlayerWinWithPlay('O', i))
+                {
+                    return i;
+                }
+            }
+
+            // Check for winning plays for X. If there is one, block it.
+            for (int i = 0; i < 9; i++)
+            {
+                if (game.Game[i] == ' ' && game.DoesPlayerWinWithPlay('X', i))
+                {
+                    return i;
+                }
+            }
+
+            // Check for available spaces. (i + 4) % 9 steps through starting at the middle square
+            for (int i = 0; i < 9; i++)
+            {
+                if (game.Game[(i + 4) % 9] == ' ')
+                {
+                    return (i + 4) % 9;
+                }
+            }
+
+            return index;
         }
 
         private GameModel GetActiveGame(int square = 0)

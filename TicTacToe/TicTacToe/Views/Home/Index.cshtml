@@ -40,9 +40,13 @@
         }
     </div>
     <p>
-        @if (Model.IsGameOver)
+        @if (Model.IsGameOver && Model.Winner != ' ')
         {
             <span>@Model.Winner wins!</span>
+        }
+        else if (Model.IsGameOver)
+        {
+            <span>Cat's game!</span>
         }
         else
         {

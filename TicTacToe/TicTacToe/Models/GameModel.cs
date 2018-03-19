@@ -54,11 +54,30 @@ namespace TicTacToe.Models
             }
         }
 
+        public bool DoesPlayerWinWithPlay(char c, int index)
+        {
+            List<char> temporaryGameList = Game.ToList();
+
+            if(temporaryGameList[index] == ' ')
+            {
+                temporaryGameList[index] = c;
+            }
+            else
+            {
+                return false;
+            }
+
+            GameModel temporaryGame = new GameModel();
+            temporaryGame.Game = temporaryGameList;
+
+            return temporaryGame.IsGameOver;
+        }
+
         public bool IsGameOver
         {
             get
             {
-                return Winner != ' ';
+                return (Winner != ' ' || !Game.Contains(' '));
             }
         }
 
