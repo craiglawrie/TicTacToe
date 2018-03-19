@@ -1,4 +1,4 @@
-﻿@model List<char>
+﻿@model TicTacToe.Models.GameModel
 
 @{
     Layout = null;
@@ -21,17 +21,17 @@
                 @for (int j = 0; j < 3; j++)
                 {
                     <div class="game-cell">
-                        @if (@Model[i * 3 + j] == ' ')
+                        @if (Model.Game[i * 3 + j] == ' ' && !Model.IsGameOver)
                         {
                             <form method="post" class="centered">
                                 <input type="hidden" value="@(i * 3 + j)" name="square" />
-                                <button class="white-btn">@Model[i * 3 + j]</button>
+                                <button class="white-btn">@Model.Game[i * 3 + j]</button>
                             </form>
                         }
                         else
                         {
                             <div class="centered">
-                                <span>@Model[i * 3 + j]</span>
+                                <span>@Model.Game[i * 3 + j]</span>
                             </div>
                         }
                     </div>
@@ -39,7 +39,17 @@
             </div>
         }
     </div>
-    <form method="post" style="margin-top: 2rem;">
+    <p>
+        @if (Model.IsGameOver)
+        {
+            <span>@Model.Winner wins!</span>
+        }
+        else
+        {
+            <span>&nbsp;</span>
+        }
+    </p>
+    <form method="post" style="margin-top: 1rem;">
         <input type="hidden" value="-1" name="square" />
         <button>New Game</button>
     </form>

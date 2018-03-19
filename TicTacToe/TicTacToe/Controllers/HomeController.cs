@@ -13,7 +13,7 @@ namespace TicTacToe.Controllers
         public ActionResult Index()
         {
             GameModel game = GetActiveGame();
-            return View(game.Game);
+            return View(game);
         }
 
         [HttpPost]
@@ -33,13 +33,19 @@ namespace TicTacToe.Controllers
 
             if (game.Game[square] == ' ')
             {
+                // Play 'X' where player chose
                 game.Game[square] = 'X';
-                for (int i = 0; i < 9; i++)
+
+                // If game is not over, find a play for 'O'
+                if (!game.IsGameOver)
                 {
-                    if (game.Game[(square + i) % 9] == ' ')
+                    for (int i = 0; i < 9; i++)
                     {
-                        game.Game[(square + i) % 9] = 'O';
-                        return;
+                        if (game.Game[(square + i) % 9] == ' ')
+                        {
+                            game.Game[(square + i) % 9] = 'O';
+                            return;
+                        }
                     }
                 }
             }
